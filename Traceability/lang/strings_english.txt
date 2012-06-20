@@ -1,0 +1,37 @@
+<?php
+	#Plugin page titles
+	$s_plugin_traceability_title = 'Traceability';
+	$s_plugin_traceability_description = 'Plugin based on selected custom fields to trace products/projects issues.';
+	$s_plugin_traceability_menu = 'Traceability';
+	$s_plugin_traceability_config = 'Configuration';
+
+	#Plugin menu link
+	$s_plugin_traceability_menu_main = 'Analysis';	
+	$s_plugin_traceability_menu_req = 'To Requirements';
+	$s_plugin_traceability_menu_test = 'To Tests';
+		
+	#Plugin configuration
+	$s_plugin_traceability_config_ana = 'Analysis';
+	$s_plugin_traceability_req_issue_status_threshold = 'Issue status threshold to warn about undefined requirement';
+	$s_plugin_traceability_test_issue_status_threshold = 'Issue status threshold to warn about undefined test';	
+	$s_plugin_traceability_config_req = 'Requirements';
+	$s_plugin_traceability_req_id_var = 'Custom field for Requirement id';
+	$s_plugin_traceability_config_test = 'Tests';
+	$s_plugin_traceability_test_id_var = 'Custom field for Test id';
+	$s_plugin_traceability_config_other = 'Other';
+	$s_plugin_traceability_management_threshold = 'Management threshold';
+	$s_plugin_traceability_id_delimiter = 'Identifier delimiter';
+	$s_plugin_traceability_custom_field_found_none = 'No string custom field found';
+	
+	#Plugin main page labels
+	$s_plugin_traceability_warning = 'Warning';
+	$s_plugin_traceability_warning_none = 'No warning';
+	$s_plugin_traceability_warning_req = 'issues without requirement';
+	$s_plugin_traceability_warning_test = 'issues without test';
+	
+	#Plugin requirement page labels
+	$s_plugin_traceability_req_id = 'Requirement Id';
+	
+	#Plugin test page labels	
+	$s_plugin_traceability_test_id = 'Test Id';
+?>
