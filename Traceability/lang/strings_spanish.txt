@@ -1,0 +1,37 @@
+<?php
+  #Plugin page titles
+	$s_plugin_traceability_title = 'Trazabilidad';
+	$s_plugin_traceability_description = 'Plugin basado en la selección de campos personalizados para trazar las incidencias entre los productos y los proyectos.';
+	$s_plugin_traceability_menu = 'Trazabilidad';
+	$s_plugin_traceability_config = 'Configuración';
+
+	#Plugin menu link
+	$s_plugin_traceability_menu_main = 'Análisis';	
+	$s_plugin_traceability_menu_req = 'Requisitos';
+	$s_plugin_traceability_menu_test = 'Test';
+		
+	#Plugin configuration
+	$s_plugin_traceability_config_ana = 'Análisis';
+	$s_plugin_traceability_req_issue_status_threshold = 'Estado de la incidencia para avisar de un requisito no definido';
+	$s_plugin_traceability_test_issue_status_threshold = 'Estado de la incidencia para avisar sobre un test no definido';
+	$s_plugin_traceability_config_req = 'Requisitos';
+	$s_plugin_traceability_req_id_var = 'Campo personalizado para informar del identificador del requisito';
+	$s_plugin_traceability_config_test = 'Tests';
+	$s_plugin_traceability_test_id_var = 'Campo personalizado para informar del identificador del test';
+	$s_plugin_traceability_config_other = 'Otro';
+	$s_plugin_traceability_management_threshold = 'Perfil mínimo para la gestión';
+	$s_plugin_traceability_id_delimiter = 'Delimitador del identificador';
+	$s_plugin_traceability_custom_field_found_none = 'No se ha encontrado ningún campo personalizado de tipo string';
+	
+	#Plugin main page labels
+	$s_plugin_traceability_warning = 'Aviso';
+	$s_plugin_traceability_warning_none = 'Sin avisos';
+	$s_plugin_traceability_warning_req = 'incidencias sin requisitos';
+	$s_plugin_traceability_warning_test = 'incidencias sin test';
+	
+	#Plugin requirement page labels
+	$s_plugin_traceability_req_id = 'Id del requisito';
+	
+	#Plugin test page labels	
+	$s_plugin_traceability_test_id = 'Id del Test';
+?>
