@@ -1,0 +1,37 @@
+<?php
+  #Plugin page titles
+	$s_plugin_traceability_title = 'Trazabilidad';
+	$s_plugin_traceability_description = 'Plugin basat en la selecció de camps personalitzats per a traçar les incidències entre els productes i els projectes.';
+	$s_plugin_traceability_menu = 'Traçabilitat';
+	$s_plugin_traceability_config = 'Configuració';
+
+	#Plugin menu link
+	$s_plugin_traceability_menu_main = 'Anàlisi';	
+	$s_plugin_traceability_menu_req = 'Requeriments';
+	$s_plugin_traceability_menu_test = 'Test';
+		
+	#Plugin configuration
+	$s_plugin_traceability_config_ana = 'Anàlisi';
+	$s_plugin_traceability_req_issue_status_threshold = 'Estat de la incidència per avisar d\'un requeriment no definit';
+	$s_plugin_traceability_test_issue_status_threshold = 'Estat de la incidència per avisar sobre un test no definit';
+	$s_plugin_traceability_config_req = 'Requeriments';
+	$s_plugin_traceability_req_id_var = 'Camp personalitzat per informar de l\'identificador del requeriment';
+	$s_plugin_traceability_config_test = 'Tests';
+	$s_plugin_traceability_test_id_var = 'Camp personalitzat per informar de l\'identificador del test';
+	$s_plugin_traceability_config_other = 'Altre';
+	$s_plugin_traceability_management_threshold = 'Perfil mínim per a la gestió';
+	$s_plugin_traceability_id_delimiter = 'Delimitador de l\'identificador';
+	$s_plugin_traceability_custom_field_found_none = 'No s\'ha trobat cap camp personalitzat de tipus string';
+	
+	#Plugin main page labels
+	$s_plugin_traceability_warning = 'Avís';
+	$s_plugin_traceability_warning_none = 'Sense avisos';
+	$s_plugin_traceability_warning_req = 'incidències sense requeriments';
+	$s_plugin_traceability_warning_test = 'incidències sense test';
+	
+	#Plugin requirement page labels
+	$s_plugin_traceability_req_id = 'Id del requeriment';
+	
+	#Plugin test page labels	
+	$s_plugin_traceability_test_id = 'Id del Test';
+?>
