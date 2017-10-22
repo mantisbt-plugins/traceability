@@ -9,18 +9,20 @@
 		 * @author rcasteran
 		 */
 		public function register() {
-		$this->name        = lang_get( 'plugin_traceability_title' );
-		$this->description = lang_get( 'plugin_traceability_description' );
-		$this->page        = 'config';
-	
-		$this->version  = '1.0.0';
-		$this->requires = array(
-		'MantisCore' => '1.2.0'
-		);
-	
-		$this->author  = 'Embedia';
-		$this->contact = 'maintenance@embedia.fr';
-		$this->url     = 'http://www.embedia.fr';
+			$this->name        = lang_get( 'plugin_traceability_title' );
+			$this->description = lang_get( 'plugin_traceability_description' );
+			$this->page        = 'config';
+		
+			$this->version  = '1.0.0';
+			$this->requires = array(
+				'MantisCore' => '1.2.0'
+				);
+		
+			$this->author  = 'STRUCT-IT';
+			$this->contact = 'contact@struct-it.fr';
+			$this->url     = 'http://www.struct-it.fr';
+		
+			log_traceability_event('Registration successfull');
 		} /* End of register() */
 
 		 /**
@@ -30,6 +32,7 @@
 		 * @author rcasteran
 		 */
 		public function schema() {
+			log_traceability_event('Schema execution successfull');
 			return array();
 		} /* End of schema() */
 
@@ -40,6 +43,8 @@
 		 * @author rcasteran
 		 */
 		public function config() {
+			log_traceability_event('Configuration successfull');
+			
 			return array(
 				'req_issue_status_threshold'	=> PLUGIN_TRACEABILITY_ISSUE_STATUS_THRSHD_DEFAULT,
 				'test_issue_status_threshold'	=> PLUGIN_TRACEABILITY_ISSUE_STATUS_THRSHD_DEFAULT,
@@ -57,6 +62,8 @@
 		 * @author rcasteran
 		 */
 		public function hooks() {
+			log_traceability_event('Event hooks configuration successfull');
+			
 			return array(
 				'EVENT_MENU_MAIN' => 'menu_main_callback',
 			);
