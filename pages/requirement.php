@@ -24,7 +24,7 @@
 	} /* End of print_issue_begin() */
 	
  	/**
-	 * Print issue and increment workload/overload if needed
+	 * Print issue details
 	 *
 	 * @return void
 	 * @author rcasteran
@@ -122,8 +122,10 @@
 		echo '</table>';
 	} /* End of print_issue_end() */	
 
+	# Retrieve current user identifier
 	$t_user_id = auth_get_current_user_id();
 
+	# Retrieve project identifier		
 	$f_project = gpc_get_string( 'project', '' );
 	if ( is_blank( $f_project ) ) {
 		$f_project_id = gpc_get_int( 'project_id', -1 );
@@ -135,8 +137,8 @@
 		}
 	}
 	
+	# Retrieve project version identifier
 	$f_version = gpc_get_string( 'version', '' );
-
 	if ( is_blank( $f_version ) ) {
 		$f_version_id = gpc_get_int( 'version_id', -1 );
 
@@ -164,11 +166,16 @@
 			trigger_error( ERROR_VERSION_NOT_FOUND, ERROR );
 		}
 	}
+	log_traceability_event('Requirement - project identifier: '.$f_project_id);
+	log_traceability_event('Requirement - project version: '.$f_version);
 
+	# Retrieve issue handler identifier
 	$f_handler_id = gpc_get_int( 'handler_id', -1 );
-	
+
+	# Retrieve requirement identifier (filtering purpose)	
 	$f_req_id_value =  gpc_get_string( 'req_id', '' );
-	
+
+	# Check user access to project	
 	if ( ALL_PROJECTS == $t_project_id ) {
 		$t_topprojects = $t_project_ids = user_get_accessible_projects( $t_user_id );
 		foreach ( $t_topprojects as $t_project ) {
@@ -189,6 +196,7 @@
 		$t_project_ids = user_get_all_accessible_subprojects( $t_user_id, $t_project_id );
 		array_unshift( $t_project_ids, $t_project_id );
 	}
+	log_traceability_event('Requirement - project identifiers count: '.count($t_project_ids));
 
 	html_page_top( lang_get( 'plugin_traceability_menu_main' ) );
 

@@ -28,6 +28,7 @@
 	$s_plugin_traceability_warning_none = 'Sin avisos';
 	$s_plugin_traceability_warning_req = 'incidencias sin requisitos';
 	$s_plugin_traceability_warning_test = 'incidencias sin test';
+	$s_plugin_traceability_warning_roadmap = 'No project roadmap available';
 	
 	#Plugin requirement page labels
 	$s_plugin_traceability_req_id = 'Id del requisito';

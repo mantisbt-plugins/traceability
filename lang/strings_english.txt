@@ -28,6 +28,7 @@
 	$s_plugin_traceability_warning_none = 'No warning';
 	$s_plugin_traceability_warning_req = 'issues without requirement';
 	$s_plugin_traceability_warning_test = 'issues without test';
+	$s_plugin_traceability_warning_roadmap = 'No project roadmap available';
 	
 	#Plugin requirement page labels
 	$s_plugin_traceability_req_id = 'Requirement Id';

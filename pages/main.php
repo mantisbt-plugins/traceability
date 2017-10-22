@@ -107,6 +107,8 @@
 				
 				if( $t_bug->handler_id != 0 ) {
 					$g_issue_wo_req = $g_issue_wo_req.'<td><a href="'.plugin_page('main', false).'&handler_id='.$t_bug->handler_id.'">'.string_display_line(user_get_name($t_bug->handler_id)).'</a></td>';
+				} else {
+					$g_issue_wo_req = $g_issue_wo_req.'<td/>';
 				}
 					
 				$g_issue_wo_req = $g_issue_wo_req.'<td bgcolor="'.get_status_color( $t_bug->status ).'">'.$t_status[$t_bug->status].'</td>';
@@ -133,6 +135,8 @@
 				
 				if( $t_bug->handler_id != 0 ) {
 					$g_issue_wo_test = $g_issue_wo_test.'<td><a href="'.plugin_page('main', false).'&handler_id='.$t_bug->handler_id.'">'.string_display_line(user_get_name($t_bug->handler_id)).'</a></td>';
+				} else {
+					$g_issue_wo_test = $g_issue_wo_test.'<td/>';
 				}
 					
 				$g_issue_wo_test = $g_issue_wo_test.'<td bgcolor="'.get_status_color( $t_bug->status ).'">'.$t_status[$t_bug->status].'</td>';
@@ -142,9 +146,14 @@
 			/* Else do nothing */
 		}
 		/* Else do nothing */					
-	} /* End of print_issue() */
+	} /* End of build_issue_list() */
 	
-	# Print header for the specified project version.
+	/**
+	 * Print header for the specified project version
+	 *
+	 * @return void
+	 * @author rcasteran
+	 */
 	function print_version_header( $p_version_row ) {
 		$t_project_id   = $p_version_row['project_id'];
 		$t_version_id   = $p_version_row['id'];
@@ -166,15 +175,22 @@
 
 		$t_release_title_without_hyperlinks = $t_project_name . ' - ' . $t_version_name . $t_scheduled_release_date;
 		echo utf8_str_pad( '', utf8_strlen( $t_release_title_without_hyperlinks ), '=' ), '<br />';
-	}
+	} /* End of print_version_header() */
 
-	# print project header
+	/**
+	 * Print project header
+	 *
+	 * @return void
+	 * @author rcasteran
+	 */
 	function print_project_header_roadmap( $p_project_name ) {
 		echo '<br /><span class="pagetitle">', string_display( $p_project_name ), ' - ', lang_get( 'roadmap' ), '</span><br />';
-	}
+	} /* End of print_project_header_roadmap() */
 
+	# Retrieve current user identifier
 	$t_user_id = auth_get_current_user_id();
 
+	# Retrieve project identifier	
 	$f_project = gpc_get_string( 'project', '' );
 	if ( is_blank( $f_project ) ) {
 		$f_project_id = gpc_get_int( 'project_id', -1 );
@@ -184,10 +200,11 @@
 		if ( $f_project_id === 0 ) {
 			trigger_error( ERROR_PROJECT_NOT_FOUND, ERROR );
 		}
+		/* Else do nothing */
 	}
 
+	# Retrieve project version identifier
 	$f_version = gpc_get_string( 'version', '' );
-
 	if ( is_blank( $f_version ) ) {
 		$f_version_id = gpc_get_int( 'version_id', -1 );
 
@@ -214,10 +231,15 @@
 			error_parameters( $f_version );
 			trigger_error( ERROR_VERSION_NOT_FOUND, ERROR );
 		}
+		/* Else do nothing */
 	}
-
-	$f_handler_id = gpc_get_int( 'handler_id', -1 );
+	log_traceability_event('Main - project identifier: '.$f_project_id);
+	log_traceability_event('Main - project version: '.$f_version);
 	
+	# Retrieve issue handler identifier
+	$f_handler_id = gpc_get_int( 'handler_id', -1 );
+
+	# Check user access to project	
 	if ( ALL_PROJECTS == $t_project_id ) {
 		$t_topprojects = $t_project_ids = user_get_accessible_projects( $t_user_id );
 		foreach ( $t_topprojects as $t_project ) {
@@ -238,18 +260,22 @@
 		$t_project_ids = user_get_all_accessible_subprojects( $t_user_id, $t_project_id );
 		array_unshift( $t_project_ids, $t_project_id );
 	}
+	log_traceability_event('Main - project identifiers count: '.count($t_project_ids));
 
 	html_page_top( lang_get( 'plugin_traceability_menu' ) );
 
 	print_traceability_menu('main.php', $f_project_id, $f_version_id, $f_handler_id);
 
 	$t_project_index = 0;
+	$t_nb_project_header_printed = 0;
 
 	version_cache_array_rows( $t_project_ids );
 	category_cache_array_rows_by_project( $t_project_ids );
-
+	
 	foreach( $t_project_ids as $t_project_id ) {
 		$t_project_name = project_get_field( $t_project_id, 'name' );
+		log_traceability_event('Main - project name: '.$t_project_name);
+		
 		$t_can_view_private = access_has_project_level( config_get( 'private_bug_threshold' ), $t_project_id );
 
 		$t_limit_reporters = config_get( 'limit_reporters' );
@@ -260,6 +286,7 @@
 		$t_relation_table = db_get_table( 'mantis_bug_relationship_table' );
 
 		$t_version_rows = array_reverse( version_get_all_rows( $t_project_id ) );
+		log_traceability_event('Main - project versions count: '.count($t_version_rows));
 
 		# cache category info, but ignore the results for now
 		category_get_all_rows( $t_project_id );
@@ -354,6 +381,7 @@
  				if ( !$t_project_header_printed ) {
 					print_project_header_roadmap( $t_project_name );
 					$t_project_header_printed = true;
+					$t_nb_project_header_printed++;
 				}
 
 				if ( !$t_version_header_printed ) {
@@ -456,6 +484,14 @@
 		}
 		$t_project_index++;
 	}
+	
+	# At least warn user that no project roadmap is available
+	if($t_nb_project_header_printed == 0) {
+		log_traceability_event('Main - no project roadmap available');
+
+		echo '<div>'.lang_get('plugin_traceability_warning_roadmap').'</div>';		
+	}
+	/* Else do nothing */
 	
 	html_page_bottom();
 ?>
