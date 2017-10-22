@@ -1,8 +1,8 @@
 # Traceability
-Manstis BugTracker (http://www.mantisbt.org/) Plugin based on selected custom fields to establish issues traceability to both requirements and tests.
+[Manstis BT](http://www.mantisbt.org/) Plugin based on selected custom fields to establish issues traceability to both requirements and tests.
 
 ## Requirements
-1. Plugin for 1.2.10 and above
+1. Plugin for Mantis BT 1.2.10 and above
 2. Allow user to fill both requirement and test identifier :
     1. According to bug status
     2. In different string format
@@ -27,9 +27,8 @@ Manstis BugTracker (http://www.mantisbt.org/) Plugin based on selected custom fi
 7. Follow changes in bug history
 
 ## Technical solution
-Solution is based on MantisBT [custom fields feature](http://www.mantisbt.org/manual/manual.customizing.mantis.custom.fields.php).
+Solution is based on MantisBT [custom fields feature](https://www.mantisbt.org/docs/master-1.2.x/en/administration_guide/admin.customize.html).
 In plugin configuration, user must select/configure :
-
 - Two custom fields of type STRING :
     - One for requirement identifier
     - One for test identifier
