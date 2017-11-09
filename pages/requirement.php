@@ -298,8 +298,6 @@
 
 			user_cache_array_rows( array_unique( $t_issue_handlers ) );
 
-			$t_progress = $t_issues_planned > 0 ? ( (integer) ( $t_issues_resolved * 100 / $t_issues_planned ) ) : 0;
-
 			$t_issue_set_ids = array();
 			$t_issue_set_levels = array();
 			$k = 0;
