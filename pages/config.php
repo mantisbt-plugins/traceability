@@ -48,7 +48,7 @@
 		{
 			$t_desc = custom_field_get_definition( $t_field_id );
 			echo '<option value="'.$t_field_id.'"';
-			check_selected( plugin_config_get('req_id_var_idx'), $t_field_id ); 
+			check_selected( strval(plugin_config_get('req_id_var_idx')), strval($t_field_id) ); 
 			echo '>'.string_display($t_desc['name']).'</option>';
 		}		
 		echo '</select></td>';
@@ -70,7 +70,7 @@
 		{
 			$t_desc = custom_field_get_definition( $t_field_id );
 			echo '<option value="'.$t_field_id.'"';
-			check_selected( plugin_config_get('test_id_var_idx'), $t_field_id ); 
+			check_selected( strval(plugin_config_get('test_id_var_idx')), strval($t_field_id) ); 
 			echo '>'.string_display($t_desc['name']).'</option>';
 		}		
 		echo '</select></td>';
