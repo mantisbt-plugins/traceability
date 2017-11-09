@@ -111,11 +111,11 @@
 		 * @author rcasteran
 		 */
 		function get_custom_fied_ids($p_types) {
-			$t_custom_field_table = db_get_table( 'mantis_custom_field_table' );
+			$t_custom_field_table = db_get_table( 'custom_field' );
 			$query = "SELECT *
 					  FROM $t_custom_field_table
 					  ORDER BY name ASC";
-			$result = db_query_bound( $query );
+			$result = db_query( $query );
 			$t_row_count = db_num_rows( $result );
 			$t_ids = array();
 	
