@@ -11,7 +11,8 @@
 	 * @author rcasteran
 	 */
 	function print_issue_begin() {
-		echo '<table class="width100" cellspacing="1">';
+		echo '<div class="form-container">';
+		echo '<table>';
 		echo '<tbody>';
 		echo '<tr>';
 		echo '<td class="category" width="25%">', lang_get('email_project'), '</td>';
@@ -54,11 +55,11 @@
 				
 		if($t_req_id > PLUGIN_TRACEABILITY_VAR_IDX_NONE)
 		{
-			$t_custom_field_string_table = db_get_table('mantis_custom_field_string_table');
+			$t_custom_field_string_table = db_get_table('custom_field_string');
 			$query = "SELECT $t_custom_field_string_table.field_id, $t_custom_field_string_table.value 
 			FROM $t_custom_field_string_table 
 			WHERE $t_custom_field_string_table.bug_id=$p_issue_id";
-			$t_result = db_query_bound( $query );		
+			$t_result = db_query( $query );		
 			while ( $t_row = db_fetch_array( $t_result ) ) {
 				if(strlen($t_row['value']) > 0) {
 					if($t_row['field_id'] == $t_req_id) {					
@@ -82,7 +83,7 @@
 			}
 			
 			#Display bug properties
-			echo '<tr ', helper_alternate_class(), '>';
+			echo '<tr>';
 			echo '<td>', '<a href="'.plugin_page('requirement', false).'&project_id='.$t_project_id.'">'.string_display_line($t_project_name).'</a>', '</td>';
 			echo '<td>', '<a href="'.plugin_page('requirement', false).'&version_id='.$t_version_id.'">'.string_display_line($t_version_name).'</a>', '</td>';
 			echo '<td>', string_get_bug_view_link( $p_issue_id ), '</td>';
@@ -120,6 +121,7 @@
 	function print_issue_end() {
 		echo '</tbody>';
 		echo '</table>';
+		echo '</div>';
 	} /* End of print_issue_end() */	
 
 	# Retrieve current user identifier
