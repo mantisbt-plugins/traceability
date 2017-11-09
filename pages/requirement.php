@@ -2,7 +2,7 @@
 	require_once('api.php');
 	
 	require_once('core.php');
-	require_once('bug_api.php');
+	require_api('bug_api.php');
 
  	/**
 	 * Print issue begin
@@ -217,8 +217,8 @@
 		$t_user_access_level_is_reporter = ( REPORTER == access_get_project_level( $t_project_id ) );
 
 		$t_resolved = config_get( 'bug_resolved_status_threshold' );
-		$t_bug_table	= db_get_table( 'mantis_bug_table' );
-		$t_relation_table = db_get_table( 'mantis_bug_relationship_table' );
+		$t_bug_table	= db_get_table( 'bug' );
+		$t_relation_table = db_get_table( 'bug_relationship' );
 
 		$t_version_rows = array_reverse( version_get_all_rows( $t_project_id ) );
 
@@ -246,7 +246,7 @@
 
 			$t_first_entry = true;
 
-			$t_result = db_query_bound( $query, Array( $t_project_id, $t_version ) );
+			$t_result = db_query( $query, Array( $t_project_id, $t_version ) );
 
 			$t_issue_ids = array();
 			$t_issue_parents = array();
