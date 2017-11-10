@@ -235,8 +235,8 @@
 		}
 		/* Else do nothing */
 	}
-	log_traceability_event('Main - project identifier: '.$f_project_id);
-	log_traceability_event('Main - project version: '.$f_version);
+	log_traceability_event('Main - project identifier: '.$t_project_id);
+	log_traceability_event('Main - project version: '.$f_version_id);
 	
 	# Retrieve issue handler identifier
 	$f_handler_id = gpc_get_int( 'handler_id', -1 );
@@ -266,6 +266,7 @@
 
 	html_page_top( lang_get( 'plugin_traceability_menu' ) );
 
+	# $f_project_id references to current project filter
 	print_traceability_menu('main.php', $f_project_id, $f_version_id, $f_handler_id);
 
 	$t_project_index = 0;
