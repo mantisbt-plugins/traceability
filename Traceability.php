@@ -13,9 +13,9 @@
 			$this->description = lang_get( 'plugin_traceability_description' );
 			$this->page        = 'config';
 		
-			$this->version  = '1.1.0';
+			$this->version  = '3.0.0';
 			$this->requires = array(
-				'MantisCore' => '1.2.0'
+				'MantisCore' => '2.1.0'
 				);
 		
 			$this->author  = 'STRUCT-IT';
@@ -75,8 +75,15 @@
 		 * @return string
 		 * @author rcasteran
 		 */
-		public function menu_main_callback($p_event, $p_bug_id) {				
-			return '<a href="'.plugin_page('main', false).'">'.lang_get('plugin_traceability_menu').'</a>';						
+		public function menu_main_callback($p_event, $p_bug_id) {
+			return  array(
+						array(
+							'title' => lang_get('plugin_traceability_menu'),
+							'access_level' => VIEWER,
+							'url' => plugin_page('main', false),
+							'icon' => 'fa-link'
+						)
+					);
 		} /* End of menu_main_callback() */
 	}
 ?>
