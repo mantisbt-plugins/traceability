@@ -25,12 +25,6 @@
 	
 	$f_manage_threshold = gpc_get_int( 'manage_threshold', ADMINISTRATOR );
 	log_traceability_event('Configuration - new manage threshold: '.$f_manage_threshold);
-	
-	html_page_top( null, plugin_page( 'config', true ) );
-
-	print_manage_menu();
-	
-	echo '<br /><div class="center">';
 
 	if($f_req_id_var != PLUGIN_TRACEABILITY_VAR_IDX_NONE && 
 		$f_test_id_var != PLUGIN_TRACEABILITY_VAR_IDX_NONE) {
@@ -59,7 +53,7 @@
 				plugin_config_set( 'manage_threshold', $f_manage_threshold );
 			}		
 
-			echo lang_get( 'operation_successful' ) . '<br />';
+			print_successful_redirect( plugin_page( 'config', true ) );
 		}
 		else if ($f_req_id_var == $f_test_id_var) {
 			log_traceability_event('Configuration - error: same customer field for both req id and test id');
@@ -79,8 +73,4 @@
 			error_parameters( lang_get( 'plugin_traceability_req_id_var' ), $f_req_id_var );
 			trigger_error( ERROR_CONFIG_OPT_INVALID, WARNING );				
 	}
-	
-	print_bracket_link( plugin_page( 'config', true ), lang_get( 'proceed' ) );
-	echo '</div>';
-	html_page_bottom();			
 ?>
