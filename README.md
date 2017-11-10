@@ -1,6 +1,9 @@
 # Traceability
 [Manstis BT](http://www.mantisbt.org/) Plugin based on selected custom fields to establish issues traceability to both requirements and tests.
 
+## Installation
+Please refer to the plugin [user guide](https://github.com/mantisbt-plugins/traceability/wiki/User-Guide).
+
 ## Requirements
 1. Plugin for following Mantis BT versions :
 	1. 1.2.10 and above ([master](https://github.com/mantisbt-plugins/traceability/tree/master)) : major version number is equal to 1
