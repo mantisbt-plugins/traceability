@@ -5,6 +5,7 @@
 1. Plugin for following Mantis BT versions :
 	1. 1.2.10 and above ([master](https://github.com/mantisbt-plugins/traceability/tree/master)) : major version number is equal to 1
 	2. 1.3.12 and above ([mantisbt_1_3_X](https://github.com/mantisbt-plugins/traceability/tree/mantisbt_1_3_X)) : major version number is equal to 2
+	3. 2.3.0 and above ([mantisbt_2_3_X](https://github.com/mantisbt-plugins/traceability/tree/mantisbt_2_3_X)) : major version number is equal to 3
 2. Allow user to fill both requirement and test identifier :
     1. According to bug status
     2. In different string format
