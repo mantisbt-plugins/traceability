@@ -166,8 +166,8 @@
 			trigger_error( ERROR_VERSION_NOT_FOUND, ERROR );
 		}
 	}
-	log_traceability_event('Requirement - project identifier: '.$f_project_id);
-	log_traceability_event('Requirement - project version: '.$f_version);
+	log_traceability_event('Requirement - project identifier: '.$t_project_id);
+	log_traceability_event('Requirement - project version: '.$f_version_id);
 
 	# Retrieve issue handler identifier
 	$f_handler_id = gpc_get_int( 'handler_id', -1 );
@@ -200,7 +200,9 @@
 
 	html_page_top( lang_get( 'plugin_traceability_menu_main' ) );
 
+	# $f_project_id references to current project filter
 	print_traceability_menu('requirement.php', $f_project_id, $f_version_id, $f_handler_id);
+	
 	$t_project_index = 0;
 	echo '<br/>';
 

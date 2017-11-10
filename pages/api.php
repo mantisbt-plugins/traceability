@@ -1,6 +1,6 @@
 <?php
-	define('PLUGIN_LOGIN_HISTORY_FILE', 'plugins/traceability/log/log_traceability');
-	define('PLUGIN_LOGIN_HISTORY_ENTRY_MAX', 5000);
+	define('PLUGIN_TRACEABILITY_HISTORY_FILE', 'plugins/traceability/log/log_traceability');
+	define('PLUGIN_TRACEABILITY_HISTORY_ENTRY_MAX', 5000);
 	
 	define('PLUGIN_TRACEABILITY_ID_DELIMITER_DEFAULT', ';');
 	define('PLUGIN_TRACEABILITY_VAR_IDX_NONE', '-1');
@@ -16,14 +16,14 @@
 		 * @author rcasteran
 		 */
 		function log_traceability_event( $p_event = '') {
-			$t_fileData = file(PLUGIN_LOGIN_HISTORY_FILE);
+			$t_fileData = file(PLUGIN_TRACEABILITY_HISTORY_FILE);
 
 			array_unshift($t_fileData, time().';'.$p_event.';'.PHP_EOL);
-  			if (count($t_fileData) > PLUGIN_LOGIN_HISTORY_ENTRY_MAX) {
-    			$t_fileData = array_slice($t_fileData, 0, PLUGIN_LOGIN_HISTORY_ENTRY_MAX);
+  			if (count($t_fileData) > PLUGIN_TRACEABILITY_HISTORY_ENTRY_MAX) {
+    			$t_fileData = array_slice($t_fileData, 0, PLUGIN_TRACEABILITY_HISTORY_ENTRY_MAX);
 			}/* Else do nothing */
 			
-			file_put_contents(PLUGIN_LOGIN_HISTORY_FILE, $t_fileData, LOCK_EX);
+			file_put_contents(PLUGIN_TRACEABILITY_HISTORY_FILE, $t_fileData, LOCK_EX);
 		}
 	}
 	
