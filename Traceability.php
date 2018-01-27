@@ -13,7 +13,7 @@
 			$this->description = lang_get( 'plugin_traceability_description' );
 			$this->page        = 'config';
 		
-			$this->version  = '2.0.0';
+			$this->version  = '2.0.1';
 			$this->requires = array(
 				'MantisCore' => '1.3.0'
 				);
