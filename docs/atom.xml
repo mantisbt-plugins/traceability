@@ -4,10 +4,10 @@ layout: feed
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>MantisBT Traceability Plugin</title>
-	<link href="https://traceability.github.io/atom.xml" rel="self"/>
-	<link href="https://traceability.github.io/"/>
+	<link href="https://mantisbt-plugins.github.io/traceability/atom.xml" rel="self"/>
+	<link href="https://mantisbt-plugins.github.io/traceability/"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
-	<id>https://traceability.github.io/</id>
+	<id>https://mantisbt-plugins.github.io/traceability/</id>
 	<author>
 		<name>STRUCT-IT</name>
 		<email>contact@struct-it.fr</email>
@@ -15,9 +15,9 @@ layout: feed
 	{% for post in site.posts %}
 		<entry>
 			<title>{{ post.title }}</title>
-			<link href="http://traceability.github.io{{ post.url }}"/>
+			<link href="https://mantisbt-plugins.github.io/traceability{{ post.url }}"/>
 			<updated>{{ post.date | date_to_xmlschema }}</updated>
-			<id>http://traceability.github.io{{ post.id }}</id>
+			<id>https://mantisbt-plugins.github.io/traceability{{ post.id }}</id>
 			<content type="html">{{ post.content | xml_escape }}</content>
 		</entry>
 	{% endfor %}
