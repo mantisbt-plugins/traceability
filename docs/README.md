@@ -1,4 +1,5 @@
-# News
+## News
+<div>
 <ul class="posts">
 	{% for post in site.posts %}
 	<li>
@@ -7,3 +8,7 @@
 	</li>
 	{% endfor %}
 </ul>
+</div>
+
+## RSS flow
+https://mantisbt-plugins.github.io/traceability/atom.xml
