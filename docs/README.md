@@ -2,7 +2,7 @@
 <ul>
 	<li>
 		<span>Real-time traceability analysis of your issues to both requirements and tests</span>
-		<img alt="Traceability analysis" src="https://github.com/mantisbt-plugins/traceability/blob/master/wiki/traceability_analysis_1_2_X.png"></img>
+		[Traceability analysis in MantisBT 1.2.X]({{ site.url }}/assets/traceability_analysis_1_2_X.png)
 	</li>
 </ul>
 
