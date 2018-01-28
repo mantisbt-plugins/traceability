@@ -1,2 +1,3 @@
 title: MantisBT Traceability plugin
+description: Plugin to establish traceability issues to both requirements and tests.
 theme: jekyll-theme-slate
