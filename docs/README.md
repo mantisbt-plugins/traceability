@@ -11,7 +11,7 @@
 </div>
 <div>
 	<p style="margin:0;">Releases with major version number equal to 2 are targeted for MantisBT 1.3.12 and above.</p>
-	<p style="margin:0;">Releases with major version number equal to 3 are targeted for MantisBT 2.3.0 and above/</p>
+	<p style="margin:0;">Releases with major version number equal to 3 are targeted for MantisBT 2.3.0 and above.</p>
 </div>
 
 ## Features
@@ -23,7 +23,7 @@
 			title="Issue traceability in MantisBT 1.2.X" />
 	</li>
 	<li>
-		<span>Assess the traceability analysis of your issues</span>
+		<span>Assess the traceability of your issues</span>
 		<img alt="Traceability analysis" 
 			src="https://mantisbt-plugins.github.io/traceability/assets/traceability_analysis_1_2_X.png" 
 			title="Traceability analysis in MantisBT 1.2.X" />
