@@ -10,7 +10,7 @@
 </ul>
 </div>
 
-## RSS flow
+## RSS feed
 <div>
-<a href="https://mantisbt-plugins.github.io/traceability/atom.xml">RSS flow link</a>
+<a href="https://mantisbt-plugins.github.io/traceability/atom.xml">RSS feed</a>
 </div>
