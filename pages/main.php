@@ -176,7 +176,7 @@
 		echo '<br />', $t_release_title, $t_scheduled_release_date, lang_get( 'word_separator' ), '<br />';
 
 		$t_release_title_without_hyperlinks = $t_project_name . ' - ' . $t_version_name . $t_scheduled_release_date;
-		echo utf8_str_pad( '', utf8_strlen( $t_release_title_without_hyperlinks ), '=' ), '<br />';
+		echo utf8_str_pad( '', mb_strlen( $t_release_title_without_hyperlinks ), '=' ), '<br />';
 	} /* End of print_version_header() */
 
 	/**
